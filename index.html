@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KP-ABE with KWS Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>KP-ABE with KWS Demo</h1>
+
+    <form action="/encrypt" method="post">
+        <label for="data_to_encrypt">Data to Encrypt:</label>
+        <input type="text" id="data_to_encrypt" name="data_to_encrypt">
+        <input type="submit" value="Encrypt">
+    </form>
+
+    {% if encrypted_data %}
+        <p>Encrypted Data: {{ encrypted_data }}</p>
+    {% endif %}
+
+    <hr>
+
+    <form action="/decrypt" method="post">
+        <label for="data_to_decrypt">Data to Decrypt:</label>
+        <input type="text" id="data_to_decrypt" name="data_to_decrypt">
+        <input type="submit" value="Decrypt">
+    </form>
+
+    {% if decrypted_data %}
+        <p>Decrypted Data: {{ decrypted_data }}</p>
+    {% endif %}
+
+    <hr>
+
+    <form action="/search" method="post">
+        <label for="keyword">Keyword to Search:</label>
+        <input type="text" id="keyword" name="keyword">
+        <input type="submit" value="Search">
+    </form>
+
+</body>
+</html>
